@@ -85,7 +85,7 @@
     </section>
     <section class="row">
       <div class="col-xs-2">
-        <div class="list-group" data-bind="foreach: parkLocations">
+        <div class="list-group" data-bind="foreach: markerList">
           <li class="list-group-item" data-bind="text: title"></li>
         </div>
       </div>
@@ -95,5 +95,5 @@
   <script src="js/map_view.js"></script>
   <script src="js/mapStyles.js"></script>
   <script src="js/parksDB.js"></script>
-  <script async defer src="http://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyCRUGfOaSG-C-xBqr8yASCn1BmPiBqrB-k&v=3&callback=initMap"></script>
+  <script async defer src="http://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyCRUGfOaSG-C-xBqr8yASCn1BmPiBqrB-k&v=3&callback=initializeMap"></script>
 </body>
