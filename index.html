@@ -86,7 +86,7 @@
     <section class="row">
       <div class="col-xs-2">
         <div class="list-group" data-bind="foreach: markerList">
-          <li class="list-group-item" data-bind="text: title"></li>
+          <li class="list-group-item" data-bind="text: title, click: $parent.clicker"></li>
         </div>
       </div>
     </section>

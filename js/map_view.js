@@ -161,20 +161,15 @@ var parkLocations = [{
     }
 }];
 
-
-
 var ViewModel = function() {
   'use strict';
   var self = this;
   var map;
   var allMarkers = [];
-
-
   self.markerList = ko.observableArray([]);
-//  self.currentMarker = ko.observable(this.markerList()[0]);
+
 
   //constructor creates a new map, only center and zoom are required.
-
   var initializeMap = function() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 44.426780, lng: 26.104116},
@@ -196,6 +191,12 @@ var ViewModel = function() {
       id: i
     });
     self.markerList.push(marker);
+
+  self.clicker = function() {
+    displayInfoWindow(this, infoWindow);
+  };
+
+
     marker.addListener('click', function() {
       displayInfoWindow(this, infoWindow);
     });
@@ -204,10 +205,6 @@ var ViewModel = function() {
   //create info window with InfoWindow() method
   var infoWindow = new google.maps.InfoWindow();
 
-    //  var position;
-    //  var title;
-
-
     //  var makeMarkerIcon = function() {
     //    var markerImage = new google.maps.MarkerImage('img/tree.png');
     //    return markerImage;
@@ -215,19 +212,23 @@ var ViewModel = function() {
 
     //  var defaultMarker = makeMarkerIcon();
 
-    //loads information in an InfoWindow();
-
   } //initializeMap() end
 
 
-
-  function displayInfoWindow (marker, infowin) {
+    //animates marker and loads information in an InfoWindow();
+  var displayInfoWindow = function(marker, infowin) {
     if (infowin.marker != marker) {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      setTimeout(function(){
+        marker.setAnimation(null);
+      }, 1450);
+      map.panTo(marker.position);
       infowin.marker = marker;
       infowin.setContent('<div>' + marker.title + '</div>');
       infowin.open(map, marker);
       infowin.addListener('closeclick', function(){
         infowin.setMap(null);
+
       });
     };
   };
@@ -236,14 +237,10 @@ var ViewModel = function() {
 //      displayInfoWindow(this, infoWindow);
 //    });
 
-//  self.populateLocations = function() {
 
-//  };
 // load the map in the window
 google.maps.event.addDomListener(window, 'load', initializeMap);
 } //ViewModel() end
-
-
 
 
 $(function(){
