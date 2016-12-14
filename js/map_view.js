@@ -163,85 +163,89 @@ var parkLocations = [{
 
 
 
+var ViewModel = function() {
+  'use strict';
+  var self = this;
+  var map;
+  var allMarkers = [];
 
 
-//Global variables
-var map;
-var parks = []; //Stores all parks in this array
+  self.markerList = ko.observableArray([]);
+//  self.currentMarker = ko.observable(this.markerList()[0]);
 
-
-// initMap() loads the map with the specified parameters
-function initializeMap() {
   //constructor creates a new map, only center and zoom are required.
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 44.426780, lng: 26.104116},
-    zoom: 13,
-    styles: styles,
-    mapTypeControl: false
-  });
 
-//create info window with InfoWindow() method
+  var initializeMap = function() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 44.426780, lng: 26.104116},
+      zoom: 13,
+      styles: styles,
+      mapTypeControl: false
+    });
+
+  for (var i = 0; i < parkLocations.length; i++) {
+    var position = parkLocations[i].location;
+    var title = parkLocations[i].title;
+    var img = new google.maps.MarkerImage('img/park.png');
+    var marker = new google.maps.Marker({
+      map: map,
+      title: title,
+      position: position,
+      animation: google.maps.Animation.DROP,
+      icon: img,
+      id: i
+    });
+    self.markerList.push(marker);
+    marker.addListener('click', function() {
+      displayInfoWindow(this, infoWindow);
+    });
+  } //for loop end
+
+  //create info window with InfoWindow() method
   var infoWindow = new google.maps.InfoWindow();
 
-//loads information in an InfoWindow();
+    //  var position;
+    //  var title;
+
+
+    //  var makeMarkerIcon = function() {
+    //    var markerImage = new google.maps.MarkerImage('img/tree.png');
+    //    return markerImage;
+    //  };
+
+    //  var defaultMarker = makeMarkerIcon();
+
+    //loads information in an InfoWindow();
+
+  } //initializeMap() end
+
+
+
   function displayInfoWindow (marker, infowin) {
     if (infowin.marker != marker) {
       infowin.marker = marker;
       infowin.setContent('<div>' + marker.title + '</div>');
       infowin.open(map, marker);
       infowin.addListener('closeclick', function(){
-        infowin.setMarker(null);
+        infowin.setMap(null);
       });
     };
   };
 
-  var position;
-  var title;
-  var defaultMarker = makeMarkerIcon();
+//    marker.addListener('click', function() {
+//      displayInfoWindow(this, infoWindow);
+//    });
 
-//iterate through the locations array (from parksDB.js)
-  for (i = 0; i < parkLocations.length; i++) {
-    position = parkLocations[i].location;
-    title = parkLocations[i].title;
+//  self.populateLocations = function() {
 
-//create marker object
-    var marker = new google.maps.Marker({
-      position: position,
-      icon: defaultMarker,
-      title: title,
-      id: i
-    });
-//add marker in parks array, for every location
-    parks.push(marker);
-//add every item from parks array to map
-    parks[i].setMap(map);
-//runs the displayInfoWindow() function when the marker is clicked
-    marker.addListener('click', function() {
-      displayInfoWindow(this, infoWindow);
-    })
-  };
-}
-
-//creates marker icon
-function makeMarkerIcon () {
-  var markerImage = new google.maps.MarkerImage('img/tree.png');
-  return markerImage;
-}
+//  };
+// load the map in the window
+google.maps.event.addDomListener(window, 'load', initializeMap);
+} //ViewModel() end
 
 
-var ViewModel = function() {
-  var self = this;
-  this.markerList = ko.observableArray([]);
 
-  this.currentMarker = ko.observable(this.markerList()[0]);
 
-  parkLocations.forEach(function(eachPark) {
-    self.markerList.push(new ParkMarker(eachPark));
-  });
-}
-
-var ParkMarker = function(data) {
-  this.title = ko.observable(data.title);
-}
-
-ko.applyBindings(new ViewModel());
+$(function(){
+  ko.applyBindings(new ViewModel());
+});
