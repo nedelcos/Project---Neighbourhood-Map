@@ -1,7 +1,6 @@
 html,
 body {
   font-family: Arial, sans-serif;
-  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -16,4 +15,10 @@ header {
   position: absolute;
   right:0;
   padding-left: 0;
+}
+
+.park-list {
+  cursor: pointer;
+  max-height: 70vh;
+  overflow: scroll;
 }

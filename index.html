@@ -17,6 +17,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet" crossorigin="anonymous">
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
   <script src="https://use.fontawesome.com/c54842ddb7.js"></script>
@@ -44,7 +45,7 @@
              <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                <ul class="dropdown-menu">
-                 <li><a href="#">Action</a></li>
+                 <li><a href="#">Sector 1</a></li>
                  <li><a href="#">Another action</a></li>
                  <li><a href="#">Something else here</a></li>
                  <li role="separator" class="divider"></li>
@@ -56,20 +57,21 @@
            </ul>
            <form class="navbar-form navbar-left">
              <div class="form-group">
-               <input type="text" class="form-control" placeholder="Search">
+               <input type="search" class="form-control" placeholder="Search">
              </div>
              <button type="submit" class="btn btn-default">Submit</button>
            </form>
            <ul class="nav navbar-nav navbar-right">
              <li><a href="#">Link</a></li>
              <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sector <span class="caret"></span></a>
                <ul class="dropdown-menu">
-                 <li><a href="#">Action</a></li>
-                 <li><a href="#">Another action</a></li>
-                 <li><a href="#">Something else here</a></li>
-                 <li role="separator" class="divider"></li>
-                 <li><a href="#">Separated link</a></li>
+                 <li><a value=1 href="#">Sector 1</a></li>
+                 <li><a value=2 href="#">Sector 2</a></li>
+                 <li><a value=3 href="#">Sector 3</a></li>
+                 <li><a value=4 href="#">Sector 4</a></li>
+                 <li><a value=5 href="#">Sector 5</a></li>
+                 <li><a value=6 href="#">Sector 6</a></li>
                </ul>
              </li>
            </ul>
@@ -84,8 +86,8 @@
       </div>
     </section>
     <section class="row">
-      <div class="col-xs-2">
-        <div class="list-group" data-bind="foreach: markerList">
+      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+        <div class="list-group park-list" data-bind="foreach: markerList">
           <li class="list-group-item" data-bind="text: title, click: $parent.clicker"></li>
         </div>
       </div>
