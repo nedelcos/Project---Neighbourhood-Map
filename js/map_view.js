@@ -1,5 +1,6 @@
 var map;
-var marker;
+//var marker;
+//var parkItem;
 
 //constructor creates a new map, only center and zoom are required.
 var initializeMap = function() {
@@ -14,40 +15,59 @@ var initializeMap = function() {
 } //initializeMap() end
 
 
+var Park = function (data) {
+    "use strict";
+    this.title = ko.observable(data.title);
+    this.position = ko.observable(data.position);
+    this.count = ko.observable(data.count);
+    this.marker = ko.observable(data.marker);
+
+};
+
+
 var ViewModel = function() {
   'use strict';
   var self = this;
 
-  this.markerList = ko.observableArray([]);
+  self.markerList = ko.observableArray([]);
 
   //create info window with InfoWindow() method
   var infoWindow = new google.maps.InfoWindow();
 
-  for (var i = 0; i < parkLocations.length; i++) {
-    var position = parkLocations[i].location;
-    var title = parkLocations[i].title;
-    var sector = parkLocations[i].sector;
-    var img = new google.maps.MarkerImage('img/park.png');
-    marker = new google.maps.Marker({
-      map: map,
-      sector: sector,
-      title: title,
-      position: position,
-      animation: google.maps.Animation.DROP,
-      icon: img,
-      id: i
-    });
-    self.markerList.push(marker);
+  parkLocations.forEach(function (parkItem) {
+      self.markerList.push(new Park(parkItem));
+      position = parkItem.position;
+  });
 
-    self.clicker = function() {
-      displayInfoWindow(this, infoWindow);
-    };
 
-    marker.addListener('click', function() {
-      displayInfoWindow(this, infoWindow);
-    });
 
-  } //for loop end
+
+  var marker;
+  var position;
+
+  self.markerList().forEach(function (parkItem) {
+    var position = parkItem.position();
+    var title = parkItem.title();
+      marker = new google.maps.Marker({
+          position: position,
+          title: title,
+          map: map,
+          icon: new google.maps.MarkerImage('img/park.png'),
+          animation: google.maps.Animation.DROP
+      });
+      parkItem.marker = marker;
+
+      self.clicker = function() {
+        displayInfoWindow(this.marker, infoWindow);
+      };
+
+      marker.addListener('click', function() {
+        displayInfoWindow(this, infoWindow);
+      });
+
+  });
+
+
 
 } //ViewModel() end
 
