@@ -43,8 +43,38 @@ var ViewModel = function() {
   var marker;
   var position;
 
+  //Clears all markers from map
+  this.clearMap = function() {
+    this.markerList().forEach(function (parkItem) {
+      parkItem.marker.setMap(null);
+    });
+    this.parksBySector().forEach(function (parkItem) {
+      parkItem.marker.setMap(map);
+    });
+  };
+
+  this.parkSectors = ko.observableArray([1, 2, 3, 4, 5, 6]);
+
+  //TODO: it is suposed to hold the value from the selected sector
+  this.selectedSector = ko.observableArray([]);
+
+
+  this.parksBySector = ko.computed ( function() {
+         var filter = self.selectedSector();
+         if ( self.selectedSector().length === 0 ) {
+             return self.markerList();
+         } else {
+
+             return ko.utils.arrayFilter(self.markerList(), function(parkItem) {
+                 var sector = parkItem.sector();
+                 var match = self.selectedSector().includes(parkItem.sector());
+                 return match;
+             });
+         }
+     });
+
   //creates google maps marker for each new park
-  self.markerList().forEach(function (parkItem) {
+  this.parksBySector().forEach(function (parkItem) {
     var position = parkItem.position();
     var title = parkItem.title();
       marker = new google.maps.Marker({
@@ -64,71 +94,6 @@ var ViewModel = function() {
         displayInfoWindow(this, infoWindow);
       });
   });
-
-  //TODO: it is suposed to hold the value from the selected sector
-  this.selectedSector = ko.observable("");
-
-  //Clears all markers from map
-  function clearMap() {
-    self.markerList().forEach(function (parkItem) {
-      parkItem.marker.setMap(null);
-    });
-  };
-
-  //TODO: This switch statement is suposed to filter my Parks based on their sector
-  this.listSector = function() { //listSector() function is called with knockout, when selecting a sector
-    clearMap();
-    switch(this.selectedSector()) { //the selectedSector observable is suposed to hold the value for the selected sector
-      case 1:
-        console.log(parkItem.sector())
-        self.markerList().forEach(function (parkItem) {
-          if (parkItem.sector() = 1) {
-            parkItem.marker.setMap(map);
-          }
-        });
-        break;
-      case 2:
-        console.log(parkItem.sector())
-        self.markerList().forEach(function (parkItem) {
-          if (parkItem.sector() = 2) {
-            parkItem.marker.setMap(map);
-          }
-        });
-        break;
-      case 3:
-        console.log(parkItem.sector())
-        self.markerList().forEach(function (parkItem) {
-          if (parkItem.sector() = 3) {
-            parkItem.marker.setMap(map);
-          }
-        });
-        break;
-      case 4:
-        console.log(parkItem.sector())
-        self.markerList().forEach(function (parkItem) {
-          if (parkItem.sector() = 4) {
-            parkItem.marker.setMap(map);
-          }
-        });
-        break;
-      case 5:
-        console.log(parkItem.sector())
-        self.markerList().forEach(function (parkItem) {
-          if (parkItem.sector() = 5) {
-            parkItem.marker.setMap(map);
-          }
-        });
-        break;
-      case 6:
-        console.log(parkItem.sector())
-        self.markerList().forEach(function (parkItem) {
-          if (parkItem.sector() = 6) {
-            parkItem.marker.setMap(map);
-          }
-        });
-        break;
-    }
-  }
 
 } //ViewModel() end
 
