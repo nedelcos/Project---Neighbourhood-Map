@@ -153,5 +153,5 @@ var displayInfoWindow = function(marker, infowin) {
   };
 };
 
-var wikiElem;
+//var wikiElem;
 //var wikiURL = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + marker.title + "&format=json&callback=wikiCallback";
