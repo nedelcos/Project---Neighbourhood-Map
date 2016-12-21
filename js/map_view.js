@@ -91,7 +91,7 @@ var ViewModel = function() {
              title: title,
              lat: lat,
              lng: lng,
-             infoContent: infoContent,  
+             infoContent: infoContent,
              map: map,
              icon: new google.maps.MarkerImage('img/park.png'),
              animation: google.maps.Animation.DROP,
