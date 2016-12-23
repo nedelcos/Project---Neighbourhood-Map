@@ -113,14 +113,14 @@ var ViewModel = function() {
             parkItem.marker = marker;
 
             self.clicker = function() {
-              console.log(this.title);
-              infoWindow.setContent(marker.content);
-              infoWindow.open(map, this);
-              this.marker.setAnimation(google.maps.Animation.BOUNCE);
+              var clickedPark = this;
+              infoWindow.setContent(clickedPark.marker.content);
+              infoWindow.open(map, clickedPark.marker);
+              clickedPark.marker.setAnimation(google.maps.Animation.BOUNCE);
               setTimeout(function() {
-                  this.marker.setAnimation(null);
+                  clickedPark.marker.setAnimation(null);
               }, 1450);
-              map.panTo(this.marker.position);
+              map.panTo(clickedPark.marker.position);
             };
 
             google.maps.event.addListener(marker, 'click', function() {
