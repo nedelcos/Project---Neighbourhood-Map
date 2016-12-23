@@ -6,6 +6,7 @@ var forsqare = {
   secret: 'NMEUQSYSLXU4UUDO1YHKBTMIXH3GXT1GHRFNJ13HVQATCCUN'
 };
 
+
 //This is the function that initializez the map
 var initializeMap = function() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -18,7 +19,7 @@ var initializeMap = function() {
             mapTypeControl: false
         });
 
-        //create info window with InfoWindow() method
+        //creates info window with InfoWindow() method
         infoWindow = new google.maps.InfoWindow();
 
         ko.applyBindings(new ViewModel());
@@ -82,7 +83,7 @@ var ViewModel = function() {
             }
         });
 
-        //creates google maps marker for each new park
+        //Iterates through the markers AFTER they are filtered
         this.parksBySector().forEach(function(parkItem) {
 
             // Foursquare rating API
@@ -112,6 +113,7 @@ var ViewModel = function() {
 
             parkItem.marker = marker;
 
+            //This function is called via. knockoutJs - from the markers list view
             self.clicker = function() {
               var clickedPark = this;
               infoWindow.setContent(clickedPark.marker.content);
@@ -123,6 +125,7 @@ var ViewModel = function() {
               map.panTo(clickedPark.marker.position);
             };
 
+            //Run function when marker is clicked
             google.maps.event.addListener(marker, 'click', function() {
                 infoWindow.setContent(marker.content);
                 infoWindow.open(map, this);
@@ -134,3 +137,8 @@ var ViewModel = function() {
             });
       });
 } //ViewModel() end
+
+//This fucntion is called via the script tag for the google maps api
+function mapsError() {
+  alert("Google maps was unable to load. Please check your internet connection or try again later :)");
+}

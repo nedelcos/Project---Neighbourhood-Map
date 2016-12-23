@@ -11,10 +11,12 @@
   <meta charset="utf-8">
   <meta name="theme-color" content="#ffffff">
 
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Rajdhani:400,500,600,700" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet" crossorigin="anonymous">
+  <link href="css/style.css" rel="stylesheet">
+
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
@@ -40,24 +42,17 @@
 
          <!-- Collect the nav links, forms, and other content for toggling -->
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-           <form class="navbar-form navbar-left">
-
-           </form>
            <ul class="nav navbar-nav navbar-right">
-             <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Select sector <span class="caret"></span></a>
-               <ul class="dropdown-menu">
-                 <li><select class="select-sector" data-bind="options: parkSectors, selectedOptions: selectedSector, click: clearMap" size="6" multiple="true"></select><li>
-               </ul>
-
-             </li>
+              <select class="selectpicker" data-bind="options: parkSectors, selectedOptions: selectedSector, click: clearMap" size="6" multiple="true" multiple></select>
            </ul>
          </div><!-- /.navbar-collapse -->
        </div><!-- /.container-fluid -->
     </nav>
   </header>
   <div class="container-fluid">
+    <a href="https://foursquare.com" target="_blank">
+      <img class="fs-attr" src="img/fs-attr.png">
+    </a>
     <section class="row">
       <div id="map" class="col-xs-12">
 
@@ -70,6 +65,8 @@
         </div>
       </div>
     </section>
+
+
   </div>
 
   <script src="js/parksDB.js"></script>

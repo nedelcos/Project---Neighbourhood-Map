@@ -2,7 +2,6 @@
 var parkLocations = [{
     title: "Morarilor Park",
     sector: "Sector 3",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.440521,
         lng: 26.170378
@@ -10,7 +9,6 @@ var parkLocations = [{
 }, {
     title: "National Park",
     sector: "Sector 2",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.434883,
         lng: 26.147718
@@ -18,7 +16,6 @@ var parkLocations = [{
 }, {
     title: "Titan Park",
     sector: "Sector 3",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.422879,
         lng: 26.156130
@@ -26,7 +23,6 @@ var parkLocations = [{
 }, {
     title: "Vacaresti Natural Park",
     sector: "Sector 4",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.399431,
         lng: 26.133342
@@ -34,7 +30,6 @@ var parkLocations = [{
 }, {
     title: "Plumbuita Park",
     sector: "Sector 2",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.469806,
         lng: 26.135359
@@ -42,7 +37,6 @@ var parkLocations = [{
 }, {
     title: "Bordei Park",
     sector: "Sector 2",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.471531,
         lng: 26.093903
@@ -50,7 +44,6 @@ var parkLocations = [{
 }, {
     title: "Herastrau Park",
     sector: "Sector 1",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.479186,
         lng: 26.080599
@@ -58,7 +51,6 @@ var parkLocations = [{
 }, {
     title: "Bazilescu Park",
     sector: "Sector 1",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.488668,
         lng: 26.034508
@@ -66,7 +58,6 @@ var parkLocations = [{
 }, {
     title: "Kiseleff Park",
     sector: "Sector 1",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.457677,
         lng: 26.083603
@@ -74,7 +65,6 @@ var parkLocations = [{
 }, {
     title: "Cismigiu Park",
     sector: "Sector 1",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.436660,
         lng: 26.091070
@@ -82,7 +72,6 @@ var parkLocations = [{
 }, {
     title: "Botanic Garden",
     sector: "Sector 6",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.437273,
         lng: 26.062660
@@ -90,7 +79,6 @@ var parkLocations = [{
 }, {
     title: "Tineretului Park",
     sector: "Sector 4",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.406878,
         lng: 26.104460
@@ -98,7 +86,6 @@ var parkLocations = [{
 }, {
     title: "Carol Park",
     sector: "Sector 5",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.413183,
         lng: 26.095533
@@ -106,7 +93,6 @@ var parkLocations = [{
 }, {
     title: "Drumul Taberei Park",
     sector: "Sector 6",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.420024,
         lng: 26.032190
@@ -114,7 +100,6 @@ var parkLocations = [{
 }, {
     title: "Giulesti Park",
     sector: "Sector 6",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.460531,
         lng: 26.043005
@@ -122,7 +107,6 @@ var parkLocations = [{
 }, {
     title: "Crangasi Park",
     sector: "Sector 6",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.451735,
         lng: 26.043692
@@ -130,7 +114,6 @@ var parkLocations = [{
 }, {
     title: "Pantelimon Park",
     sector: "Sector 3",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.436880,
         lng: 26.203208
@@ -138,7 +121,6 @@ var parkLocations = [{
 }, {
     title: "Constantin Brancusi Park",
     sector: "Sector 3",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.429306,
         lng: 26.164799
@@ -146,7 +128,6 @@ var parkLocations = [{
 }, {
     title: "Gheorghe Patrascu Park",
     sector: "Sector 2",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.431298,
         lng: 26.149778
@@ -154,7 +135,6 @@ var parkLocations = [{
 }, {
     title: "Opera Park",
     sector: "Sector 6",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.436064,
         lng: 26.077273
@@ -162,7 +142,6 @@ var parkLocations = [{
 }, {
     title: "Izvor Park",
     sector: "Sector 5",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.431637,
         lng: 26.087916
@@ -170,7 +149,6 @@ var parkLocations = [{
 }, {
     title: "Grozavesti Park",
     sector: "Sector 6",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.436203,
         lng: 26.056416
@@ -178,7 +156,6 @@ var parkLocations = [{
 }, {
     title: "Queen Marie Park",
     sector: "Sector 1",
-    fourSqID: "4bd4a55c637ba593df25f570",
     position: {
         lat: 44.457815,
         lng: 26.066008

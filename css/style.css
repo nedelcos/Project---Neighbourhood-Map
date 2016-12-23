@@ -19,23 +19,73 @@ header {
 
 .park-list {
   cursor: pointer;
-  max-height: 70vh;
-  overflow: scroll;
+  max-height: calc(100vh - 80px);
+  overflow: auto;
+  margin-left: -15px;
+  max-width: 70%;
+  margin-top: -10px;
 }
 
-select.select-sector {
+.park-list::-webkit-scrollbar {
+    display: none;
+}
+
+select.selectpicker {
   overflow: hidden;
   border: none;
   width: 100%;
-  text-align: right;
+  text-align: left;
+  background: none !important;
+  padding-left: 15px;
 }
 
 option {
   padding: 7px;
   padding-right: 20px;
   cursor: pointer;
+  display: block;
 }
 
 option:hover {
   background-color: #eee;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: rgba(0, 0, 0, 0.66);
+    border-top: 1px solid #ddd;
+    color: #fff;
+}
+
+.list-group-item:hover {
+  background: rgba(0, 0, 0, 0.79);
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+}
+
+img.fs-attr {
+    position: absolute;
+    margin-bottom: 0;
+    max-width: 100px;
+    bottom: 0;
+    z-index: 5000;
+}
+
+
+@media screen and (min-width: 600px) {
+  select.selectpicker {
+    height: 50px;
+    padding-top: 15px;
+  }
+
+  option {
+    display: inline;
+  }
 }
