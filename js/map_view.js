@@ -23,7 +23,7 @@ var initializeMap = function() {
         infoWindow = new google.maps.InfoWindow();
 
         ko.applyBindings(new ViewModel());
-    } //initializeMap() end
+    }; //initializeMap end
 
 
 //Object constructor that creates each park object
@@ -95,17 +95,18 @@ var ViewModel = function() {
                     parkItem.rating = data.response.groups[0].items[0].venue.rating;
                     parkItem.title = parkItem.title();
                     marker.content = '<div class="title"><strong>' + parkItem.title + '</strong></div><div class="rating">Foursquare rating: ' + parkItem.rating + '</div>';
+                    marker.setMap(map);
                 },
                 error: function(data) {
                     parkItem.title = parkItem.title();
                     marker.content = '<div class="title"><strong>' + parkItem.title + '</strong></div><div><br>No data from Forsqare :(<br>Please check your internet connection or try again later</div>';
+                    marker.setMap(map);
                 }
             });
 
             // create markers
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(parkItem.lat(), parkItem.lng()),
-                map: map,
                 title: parkItem.title(),
                 animation: google.maps.Animation.DROP,
                 icon: new google.maps.MarkerImage('img/park.png')
@@ -136,7 +137,7 @@ var ViewModel = function() {
                 map.panTo(marker.position);
             });
       });
-} //ViewModel() end
+}; //ViewModel end
 
 //This fucntion is called via the script tag for the google maps api
 function mapsError() {

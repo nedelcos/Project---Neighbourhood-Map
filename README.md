@@ -4,8 +4,10 @@ Project for Udacity - Front End Developer Nanodegree
 
 [DEMO](https://nedelcos.github.io/Project---Neighbourhood-Map/).
 
+### How to run the app?
+Simply clone or download the repository and open "index.html" in any browser.
 
-### That does it do?
+### What does it do?
 For this project, I mapped all the parks in Bucharest - Romania.
 
 ### Tools used
