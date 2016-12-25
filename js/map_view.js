@@ -1,3 +1,5 @@
+ko.options.deferUpdates = true;
+
 var map, infoWindow;
 
 //This object holds the forsqare api credentials
@@ -86,6 +88,7 @@ var ViewModel = function() {
         //Iterates through the markers AFTER they are filtered
         this.parksBySector().forEach(function(parkItem) {
 
+
             // Foursquare rating API
             $.ajax({
                 url: 'https://api.foursquare.com/v2/venues/explore',
@@ -95,19 +98,23 @@ var ViewModel = function() {
                     parkItem.rating = data.response.groups[0].items[0].venue.rating;
                     parkItem.title = parkItem.title();
                     marker.content = '<div class="title"><strong>' + parkItem.title + '</strong></div><div class="rating">Foursquare rating: ' + parkItem.rating + '</div>';
-                    marker.setMap(map);
+                      marker.setMap(map);
+
                 },
                 error: function(data) {
                     parkItem.title = parkItem.title();
-                    marker.content = '<div class="title"><strong>' + parkItem.title + '</strong></div><div><br>No data from Forsqare :(<br>Please check your internet connection or try again later</div>';
-                    marker.setMap(map);
+                    marker.content = '<div class="title"><strong>' + parkItem.title + '</strong></div><div><br>No data from Forsquare :(<br>Please check your internet connection or try again later</div>';
+                      marker.setMap(map);
                 }
+
             });
 
             // create markers
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(parkItem.lat(), parkItem.lng()),
                 title: parkItem.title(),
+                //map: map,
+                content: "<strong>" + parkItem.title() + "</strong><br>Frosquare data has not finished loading. Click marker again for rating :) ",
                 animation: google.maps.Animation.DROP,
                 icon: new google.maps.MarkerImage('img/park.png')
             });
